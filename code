@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryan Singh | Professional Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Royal blue color */
+            --secondary-color: #34495e;
+            --text-color: #333;
+            --secondary-text: #666;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --nav-bg: #fff;
+            --border-color: #e0e0e0;
+            --accent-color: #e74c3c; /* For highlights */
+        }
+
+        .dark-mode {
+            --primary-color: #3498db;
+            --secondary-color: #ecf0f1;
+            --text-color: #f5f5f5;
+            --secondary-text: #bdbdbd;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --nav-bg: #1a1a1a;
+            --border-color: #333;
+            --accent-color: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        header {
+            background-color: var(--nav-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        #navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        #navbar li {
+            margin-left: 2rem;
+        }
+
+        #navbar a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: var(--primary-color);
+        }
+
+        #theme-toggle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        #theme-toggle:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--card-bg);
+            text-align: center;
+        }
+
+        #about h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        #about h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .education-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .year {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .experience-item h3 {
+            color: var(--primary-color);
+        }
+
+        .experience-date {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin: 0.5rem 0;
+        }
+
+        .experience-description {
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--bg-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Achievements Section */
+        .achievements-list {
+            margin-top: 2rem;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        .achievement-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--card-bg);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--nav-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            #navbar ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #navbar li {
+                margin: 0.5rem;
+            }
+
+            #about h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle">Dark Mode</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h1>Aryan Singh</h1>
+                <h2>Logistics & Mining Professional</h2>
+                <p>Passionate professional with expertise in logistics and mining sectors, combining strong leadership skills with a continuous eagerness to learn and grow in these dynamic industries.</p>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <h3>BBA DBE</h3>
+                        <p class="institution">IIM Bangalore</p>
+                        <p class="year">2024 - 2026/27</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>BA Vocational in Material Management</h3>
+                        <p class="institution">College of Vocational Studies, University of Delhi</p>
+                        <p class="year">2024 - 2026/27</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Class 12</h3>
+                        <p class="institution">DAV Public School, Bishrampur</p>
+                        <p class="year">2024</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Class 10</h3>
+                        <p class="institution">DAV Public School, Bishrampur</p>
+                        <p class="year">2022</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Social Media Intern</h3>
+                    <p class="experience-date">September 1, 2023 - October 31, 2023</p>
+                    <div class="experience-description">
+                        <p>• Managed social media platforms including Instagram, Facebook, and Twitter</p>
+                        <p>• Created engaging content to increase brand awareness</p>
+                        <p>• Analyzed social media metrics to track performance and growth</p>
+                        <p>• Assisted in developing social media strategies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-item">Leadership</div>
+                    <div class="skill-item">Eager to Learn</div>
+                    <div class="skill-item">Passionate About Logistics Sector</div>
+                    <div class="skill-item">Passionate About Mining Sector</div>
+                    <div class="skill-item">Social Media Management</div>
+                    <div class="skill-item">Content Creation</div>
+                    <div class="skill-item">Analytical Skills</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="section">
+            <div class="container">
+                <h2>Achievements</h2>
+                <div class="achievements-list">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="achievement-content">
+                            <h3>State Level Tennis Player</h3>
+                            <p>Competed at the state level in tennis tournaments, demonstrating discipline, teamwork, and competitive spirit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span>singharyan3450@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </span>
+                        <a href="https://www.linkedin.com/in/aryan-singh-583532302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn Profile</a>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/aryan-singh-583532302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Aryan Singh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'Light Mode';
+            } else {
+                themeToggle.textContent = 'Dark Mode';
+            }
+        });
+
+        // Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
